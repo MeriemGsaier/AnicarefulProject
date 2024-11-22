@@ -1,0 +1,63 @@
+<!-- Cards -->
+<div style="margin-top: -7.5%; margin-left: 60%;">
+<button mat-raised-button class="me-8 mb-8" color="accent" [routerLink]="['/prop-dashboard/panier-prop']"><i-feather name="shopping-cart" class="feather-base mt-n2" style="color: white;"></i-feather> &nbsp;Votre panier
+  <span matBadge="{{ nombre_article }}" matBadgeColor="primary" matBadgePosition="above after" class="custom-badge"></span>
+</button>
+</div>
+
+
+<div class="card" id="catcard">
+  <div class="card-body">
+    
+    <mat-form-field class="w-100 fs-16" appearance="outline">
+      <mat-icon matPrefix>search</mat-icon>
+      <mat-label>Rechercher un produit</mat-label>
+      <input matInput placeholder="Entrer un nom du produit" (keyup)="applyCardFilter($event)" #input>
+    </mat-form-field>
+
+  </div>
+</div>
+
+<div class="card" id="catcard">
+  <div class="card-body">
+    
+    <mat-form-field class="w-100 fs-16" appearance="outline">
+      <mat-label>Choisir une catégorie</mat-label>
+      <mat-select formControlName="categorie" (selectionChange)="filterByCategory($event.value)">
+        <mat-option [value]="0">Tout</mat-option>
+        <mat-option *ngFor="let categorie of categories" [value]="categorie.id">{{categorie.libelle}}</mat-option>
+        
+
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+</div>
+
+<div style="margin-top: 5%;">
+<div fxLayout="row wrap" fxLayoutGap="30px grid">
+    <div fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.sm="100%" *ngFor="let card of filteredCards">
+      <mat-card class="overflow-hidden">
+        <div>
+          <img src="../../assets/images/uploads/{{card.image}}" class="w-100 card-image" alt="" style="width: 200px; ">
+        </div>
+        <mat-card-content>
+          <div>
+            <p class="fs-18 lh-lg fw-medium">
+                {{ card.libelle }}
+            </p>
+            <p class="op-7">
+                {{ card.desc }}
+            </p>
+            <span style="font-weight: bold; color: gray; font-size: 24px;"> {{ card.prix }} DT</span><br><br>
+            <button mat-button class="btn {{ card.btn }} fw-normal mt-4" (click)="addToCart(card)">Ajouter au panier</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    
+</div>
+<div style="text-align: center;">
+</div>
+
+</div>

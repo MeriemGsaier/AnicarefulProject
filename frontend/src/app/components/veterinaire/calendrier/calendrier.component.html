@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-content>
+    <button
+      mat-button
+      style="background-color: #d5fff5ea; color: #00c292"
+      routerLink="/dashboardVet/addPlanification"
+      matTooltip="Ajouter une Planification"
+      matTooltipPosition="below"
+    >
+      Ajouter
+    </button>
+    <div class="row box">
+      <div class="col-md-5 mt-3">
+        <h1 class="mb-6 op-7 text-center">Planification de la semaine</h1>
+
+        <full-calendar [options]="calendarOptions"></full-calendar>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

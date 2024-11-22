@@ -1,0 +1,80 @@
+
+<!-- Daily Activity -->
+<mat-card class="w-100">
+    <mat-card-content>
+      <h4 class="mb-56">Vos demandes de garde</h4>
+      <button mat-flat-button style="background-color: #00c292; color: white;" class="float-right" [routerLink]="['/prop-dashboard/demander-garde']">Demander garde</button>
+
+      <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" class="text-nowrap w-100">
+  
+          <!-- Id Column -->
+          <ng-container matColumnDef="nom">
+            <th mat-header-cell *matHeaderCellDef> Nom </th>
+            <!--lezem tetbadel selon nom mtaa l'animal bel id mte3ou-->
+            <td mat-cell class="fw-medium" *matCellDef="let element"> {{element.nom}} </td>
+          </ng-container>
+         
+  
+          <!-- Assigned Column -->
+           <ng-container matColumnDef="datedeb">
+            <th mat-header-cell *matHeaderCellDef style="padding-left: 30px;"> Date de début </th>
+            <!-- <td mat-cell *matCellDef="let element"> -->
+              <!-- <p class="mb-0 fw-medium"></p> -->
+              <td mat-cell class=" fw-medium" *matCellDef="let element" style="padding-left: 30px;"> {{ element.date_debut | date:'dd-MM-yyyy' }} </td>
+            <!-- </td> -->
+          </ng-container> 
+          
+           <!-- Assigned Column -->
+           <ng-container matColumnDef="heuredeb">
+            <th mat-header-cell *matHeaderCellDef style="padding-left: 30px;"> Heure de début </th>
+            <!-- <td mat-cell *matCellDef="let element"> -->
+              <!-- <p class="mb-0 fw-medium"></p> -->
+              <td mat-cell class=" fw-medium" *matCellDef="let element" style="padding-left: 30px;"> {{ element.heure_deb }} </td>
+            <!-- </td> -->
+          </ng-container> 
+
+           <!-- Assigned Column -->
+           <ng-container matColumnDef="datefin">
+            <th mat-header-cell *matHeaderCellDef style="padding-left: 40px;"> Date de fin </th>
+            <!-- <td mat-cell *matCellDef="let element"> -->
+              <!-- <p class="mb-0 fw-medium"></p> -->
+              <td mat-cell class=" fw-medium" *matCellDef="let element" style="padding-left: 30px;"> {{ element.date_fin | date:'dd-MM-yyyy' }} </td>
+            <!-- </td> -->
+          </ng-container> 
+
+           <!-- Assigned Column -->
+           <ng-container matColumnDef="heurefin">
+            <th mat-header-cell *matHeaderCellDef style="padding-left: 25px;"> Heure de fin </th>
+            <!-- <td mat-cell *matCellDef="let element"> -->
+              <!-- <p class="mb-0 fw-medium"></p> -->
+              <td mat-cell class=" fw-medium" *matCellDef="let element" style="padding-left: 30px;"> {{ element.heure_fin }} </td>
+            <!-- </td> -->
+          </ng-container> 
+
+           <!-- Assigned Column -->
+           <ng-container matColumnDef="remarque">
+            <th mat-header-cell *matHeaderCellDef style="padding-left: 50px;"> Remarques </th>
+            <!-- <td mat-cell *matCellDef="let element"> -->
+              <!-- <p class="mb-0 fw-medium"></p> -->
+              <td mat-cell class=" fw-medium" *matCellDef="let element" style="padding-left: 50px;"> {{ element.remarque }} </td>
+            <!-- </td> -->
+          </ng-container> 
+          
+          <!-- Budget Column -->
+           <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef  style="padding-left: 60px;"> Actions </th>
+            <td mat-cell *matCellDef="let element"  style="padding-left: 40px;">
+              <button style="margin: 10px;" class="actbutton" mat-raised-button class="me-3 mb-8" color="warn" matTooltip="Supprimer" matTooltipPosition="below" (click)="deleteGarde(element.id)"><i-feather name="trash-2" class="feather-base mt-n2" style="color: white;"></i-feather></button>
+              <button mat-raised-button class="me-8 mb-8" color="primary" matTooltip="Modifier" matTooltipPosition="below" [routerLink]="['/prop-dashboard/modifie-garde', element.id]"><i-feather name="edit" class="feather-base mt-n2" style="color: white;"></i-feather></button>
+                <button style="margin: 10px; background-color: gray;"  mat-raised-button class="me-3 mb-8"  matTooltip="Voir postulations" matTooltipPosition="below" [routerLink]="['/prop-dashboard/postulations', element.id]"><i-feather name="eye" class="feather-base mt-n2" style="color: white;"></i-feather></button>
+
+            </td>
+          </ng-container>
+   
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>

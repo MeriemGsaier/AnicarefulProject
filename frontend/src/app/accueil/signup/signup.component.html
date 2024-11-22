@@ -1,0 +1,153 @@
+<app-navbar></app-navbar>
+<div class="container mt-5" style="max-width: 500px; margin: 40px auto">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <mat-card>
+        <mat-card-content>
+          <h3 class="mb-32 text-center">Inscription</h3>
+          <div class="text-center mt-3">
+            <p class="text-muted">Bienvenue chez Anicareful</p>
+          </div>
+          <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <mat-form-field class="mb-3 w-100" appearance="outline">
+              <mat-label>N° CIN</mat-label>
+              <input
+                matInput
+                type="text"
+                id="cin"
+                name="cin"
+                formControlName="cin"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  signupForm.get('cin')?.invalid &&
+                  (signupForm.get('cin')?.dirty ||
+                    signupForm.get('cin')?.touched)
+                "
+              >
+                Champ obligatoire
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mb-3 w-100" appearance="outline">
+              <mat-label>Nom</mat-label>
+              <input
+                matInput
+                type="text"
+                id="nom"
+                name="nom"
+                formControlName="nom"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  signupForm.get('nom')?.invalid &&
+                  (signupForm.get('nom')?.dirty ||
+                    signupForm.get('nom')?.touched)
+                "
+              >
+                Champ obligatoire
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mb-3 w-100" appearance="outline">
+              <mat-label>Prénom</mat-label>
+              <input
+                matInput
+                type="text"
+                id="prenom"
+                name="prenom"
+                formControlName="prenom"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  signupForm.get('prenom')?.invalid &&
+                  (signupForm.get('prenom')?.dirty ||
+                    signupForm.get('prenom')?.touched)
+                "
+              >
+                Champ obligatoire
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mb-3 w-100" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="email"
+                id="email"
+                name="email"
+                formControlName="email"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  signupForm.get('email')?.invalid &&
+                  (signupForm.get('email')?.dirty ||
+                    signupForm.get('email')?.touched)
+                "
+              >
+                Email invalide
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mb-3 w-100" appearance="outline">
+              <mat-label>Mot de passe</mat-label>
+              <input
+                matInput
+                [type]="hidePassword ? 'password' : 'text'"
+                id="motDePasse"
+                name="motDePasse"
+                formControlName="motDePasse"
+                required
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                type="button"
+                (click)="hidePassword = !hidePassword"
+                [attr.aria-label]="
+                  hidePassword ? 'Show password' : 'Hide password'
+                "
+              >
+                <mat-icon>{{
+                  hidePassword ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-error
+                *ngIf="
+                  signupForm.get('motDePasse')?.invalid &&
+                  (signupForm.get('motDePasse')?.dirty ||
+                    signupForm.get('motDePasse')?.touched)
+                "
+              >
+                Le mot de passe doit contenir au moins 8 caractères, dont une
+                lettre majuscule, une lettre minuscule et un chiffre
+              </mat-error>
+            </mat-form-field>
+
+            <div class="text-center mt-12">
+              <button
+                type="submit"
+                mat-raised-button
+                color="primary"
+                [disabled]="signupForm.invalid"
+              >
+                S'inscrire
+              </button>
+            </div>
+          </form>
+          <div class="text-center mt-3">
+            <a routerLink="/accueil/login" class="text-muted"
+              >Déjà enregistré?
+              <span style="color: #03c9d7">Se connecter</span></a
+            >
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

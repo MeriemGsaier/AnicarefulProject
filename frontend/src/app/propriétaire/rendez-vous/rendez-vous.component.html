@@ -1,0 +1,64 @@
+<div style="margin-top: 5%">
+  <div fxLayout="row wrap" fxLayoutGap="30px grid">
+    <div
+      fxFlex.md="33%"
+      fxFlex.lg="33%"
+      fxFlex.xl="33%"
+      fxFlex.sm="100%"
+      *ngFor="let card of cards"
+    >
+      <mat-card class="overflow-hidden">
+        <div>
+          <img src="{{ card.image_vet }}" class="w-100 card-image" alt="" />
+        </div>
+        <mat-card-content>
+          <div>
+            <p class="fs-18 lh-lg fw-medium">
+              {{ card.nom_vet }} {{ card.prenom_vet }}
+            </p>
+            <p class="op-7">
+              <i-feather name="activity" class="feather-base mt-n2"></i-feather
+              >&nbsp;
+              {{ card.specialite }}
+            </p>
+            <p class="op-7">
+              <i-feather name="home" class="feather-base mt-n2"></i-feather
+              >&nbsp;
+              {{ card.adresse_cab }}
+            </p>
+            <p class="op-7">
+              <i-feather name="phone" class="feather-base mt-n2"></i-feather
+              >&nbsp;
+              {{ card.tel_cab }}
+            </p>
+            <div style="display: flex">
+              <button
+                mat-button
+                class="btn btn-info fw-normal mt-4"
+                [routerLink]="['/prop-dashboard/prendre-rv', card.id_vet]"
+              >
+                Prendre rendrez-vous
+              </button>
+              <button
+                style="margin-top: 8px; margin-left: 10px; padding: 0px"
+                mat-raised-button
+                class="fw-normal mt-4"
+                color="accent"
+                matTooltip="Informations sur le vétérinaire"
+                matTooltipPosition="below"
+                [routerLink]="['/prop-dashboard/info-med', card.id_vet]"
+              >
+                <i-feather
+                  name="info"
+                  class="feather-base mt-n2"
+                  style="color: white"
+                ></i-feather>
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div style="text-align: center"></div>
+</div>

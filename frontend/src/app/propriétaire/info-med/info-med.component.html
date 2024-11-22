@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-card-content>
+      <h4 class="mb-32">Informations sur le vétérinaire</h4>
+      <div *ngFor="let card of cards">
+      <mat-grid-list cols="2">
+        <mat-grid-tile>
+            <div>
+                <img src="{{ card.photo}}" class="w-100" alt="" style="width: 450px;">
+              </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div style="margin-left: -200px;">
+                <p class="fs-24 lh-lg fw-medium">
+                    {{ card.nom }} {{ card.prenom }}
+                </p>
+                <p class="fs-18 lh-lg fw-medium">
+                    <i-feather name="mail" class="feather-base mt-n2"></i-feather>&nbsp;
+                    {{ card.email }}
+                </p>
+                <p class="fs-18 lh-lg fw-medium">
+                    <mat-icon>transgender</mat-icon>
+                    : {{ card.genre }}
+                </p>
+                <p class="fs-18 lh-lg fw-medium">
+                    <i-feather name="activity" class="feather-base mt-n2"></i-feather>&nbsp;
+                    : {{ card.specialite }}
+                </p>
+                <p class="fs-18 lh-lg fw-medium">
+                    <i-feather name="smartphone" class="feather-base mt-n2"></i-feather>&nbsp;
+                    : {{ card.telephone }}
+                </p>
+                <p class="fs-18 lh-lg fw-medium">
+                    <i-feather name="user" class="feather-base mt-n2"></i-feather>&nbsp;
+                    : {{ card.age }} ans
+                </p>
+                <p class="fs-18 lh-lg fw-medium">
+                    <i-feather name="home" class="feather-base mt-n2"></i-feather>&nbsp;
+                    : {{ card.adresse_cabinet }}
+                </p>
+                <p class="fs-18 lh-lg fw-medium">
+                    <i-feather name="phone" class="feather-base mt-n2"></i-feather>&nbsp;
+                    : {{ card.telephone_cabinet }}
+                </p>
+               
+              </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      </div>
+    </mat-card-content>
+  </mat-card>

@@ -1,0 +1,33 @@
+<div class="container" id="contenu-informatif">
+    <h2 class="text-center mb-4" style="font-weight: bolder; margin: 80px; margin-top: 60px;padding-bottom: 40px;">Contenu informatif</h2>
+  </div>
+  
+  <!-- <div class="d-flex justify-content-center mb-4">
+    <div class="btn-group" style="margin-bottom: 30px;">
+      <button mat-raised-button class="me-8 mb-8" color="primary" (click)="selectCategory('')">Toutes</button>
+      <button mat-raised-button class="me-8 mb-8" color="primary" *ngFor="let category of categories" (click)="selectCategory(category)">{{ category }}</button>
+    </div>
+  </div> -->
+    
+  <div class="d-flex justify-content-center">
+    <div fxLayout="row wrap" fxLayoutGap="30px" fxLayoutAlign="center start">
+      <div fxFlex.md="25%" fxFlex.lg="25%" fxFlex.xl="25%" fxFlex.sm="100%" *ngFor="let card of filterByCategory()">
+        <mat-card class="overflow-hidden">
+          <div style="height: 200px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+            <img [src]="'../../assets/images/uploads/'+card.photo" class="img-fluid" alt="">
+          </div>
+          <mat-card-content>
+            <div>
+              <p class="fs-18 lh-lg fw-medium">{{ card.title }}</p>
+              <div style="display: flex; align-items: center; margin-bottom: 3%">
+                <mat-icon style="margin-right: 5px">calendar_today</mat-icon>
+                <p class="mb-0 op-7">{{ card.date | date : "dd/MM/yyyy" }}</p>
+              </div>
+              <p class="op-7">{{ card.description }}</p>
+              <button [routerLink]="'/accueil/signup'" mat-button class="btn btn-info fw-normal mt-4" (click)="selectProprietaire()">Plus de détails</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>

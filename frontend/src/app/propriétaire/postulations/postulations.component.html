@@ -1,0 +1,31 @@
+
+<div style="margin-top: 5%;">
+    <div fxLayout="row wrap" fxLayoutGap="30px grid">
+        <div fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.sm="100%" *ngFor="let card of cards">
+          <mat-card class="overflow-hidden">
+            <div>
+              <img src="{{ card.photo }}" class="w-100 card-image" alt="" >
+            </div>
+            <mat-card-content>
+              <div>
+                <p class="fs-18 lh-lg fw-medium" style="font-weight: bold;">
+                  {{ card.nom }} {{ card.prenom }}
+                </p>
+               
+               
+                <div style="display: flex;">
+                  <button style="margin-top: 8px; margin-left: 10px; padding: 0px; background-color: #00c292;" mat-raised-button class=" fw-normal mt-4"  matTooltip="Accepter Candidature" matTooltipPosition="below" (click)="accepterCandidature(card.id)"><i-feather name="check" class="feather-base mt-n2" style="color: white;"></i-feather></button>
+                  <button style="margin-top: 8px; margin-left: 10px; padding: 0px;" mat-raised-button class=" fw-normal mt-4" color="warn"matTooltip="Refuser Candidature" matTooltipPosition="below" (click)="refuserCandidature(card.id)"><i-feather name="x" class="feather-base mt-n2" style="color: white;"></i-feather></button>
+                <button style="margin-top: 8px; margin-left: 10px; padding: 0px;" mat-raised-button class=" fw-normal mt-4" color="accent"matTooltip="Informations sur le gardien" matTooltipPosition="below" [routerLink]="['/prop-dashboard/info-gardien',card.id]"><i-feather name="info" class="feather-base mt-n2" style="color: white;"></i-feather></button>
+
+              </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+    </div>
+    <div style="text-align: center;">
+    </div>
+    
+    </div>

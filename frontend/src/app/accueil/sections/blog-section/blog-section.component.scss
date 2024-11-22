@@ -1,0 +1,99 @@
+
+.articles {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+    position: relative;
+  }
+  
+  .nav-tabs {
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      border:none;
+  }
+  .nav-tabs .nav-item {
+      margin-bottom: -1px;
+      display: inline-block;
+  }
+  .nav-tabs li a {
+      color: #333;
+      text-transform: uppercase;
+      display: inline-block;
+      position: relative;
+      margin: 5px;
+      padding: 3px 14px;
+      border-radius: 3px;
+      font-size: 18px;
+      font-weight: 500;
+    margin-bottom: 50px;
+  }
+  .nav-tabs li:last-child a{
+      border-color:transparent;
+  } 
+  .nav-tabs li a i{
+      margin-right:10px;
+  }
+  .nav-tabs li a.active,
+  .nav-tabs li:hover a{
+      background:var(--main-color);
+      color:#fff;
+      border-color:transparent;
+  }
+  
+  
+  
+  /* Start Articles */
+  .articles {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+    position: relative;
+  }
+  .articles .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+  }
+  .articles .box {
+    box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+  }
+  .articles .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+  }
+  .articles .box img {
+    width: 100%;
+    max-width: 100%;
+  }
+  .articles .box .content {
+    padding: 20px;
+  }
+  .articles .box .content h3 {
+    margin: 0;
+  }
+  .articles .box .content p {
+    margin: 10px 0 0;
+    line-height: 1.5;
+    color: #777;
+  }
+  .articles .box .info {
+    padding: 20px;
+    border-top: 1px solid #e6e6e7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .articles .box .info a {
+    color: var(--main-color);
+    font-weight: bold;
+  }
+  .articles .box .info i {
+    color: var(--main-color);
+  }
+  .articles .box:hover .info i {
+    animation: moving-arrow 0.6s linear infinite;
+  }
+  /* End Articles */

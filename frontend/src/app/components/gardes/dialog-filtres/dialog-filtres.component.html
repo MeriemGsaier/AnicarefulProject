@@ -1,0 +1,61 @@
+<h5>Types de garde</h5>
+<div >
+  <button *ngFor="let type of typeGarde"
+    mat-button
+    class="btn-type"  
+    [class.selected]="selectedType === type.libelle"
+    (click)="selectType(type.libelle)"> 
+  {{type.libelle}}
+  </button>
+ 
+</div>
+<h5>Espèce</h5>
+<mat-form-field class="w-100 fs-16" appearance="outline" >
+  <mat-select  [(ngModel)]="selectedSpecies" (ngModelChange)="onSpeciesChange($event)">
+    <mat-option value="Chien">Chien</mat-option>
+    <mat-option value="Chat">Chat</mat-option>
+  </mat-select>
+</mat-form-field>
+<h5>Lieu</h5>
+<div>
+  <mat-form-field class="w-100 fs-16" appearance="outline">
+    <input
+      matInput
+      type="text"
+      placeholder="Veuillez entrer le lieu"
+      [(ngModel)]="selectedLocation"
+    />
+    <mat-icon matSuffix style="color: gray">location_on</mat-icon>
+  </mat-form-field>
+</div>
+<h5>Date</h5>
+<div class="date-fields">
+  <mat-form-field class="w-100 fs-16" appearance="outline">
+    <input matInput [matDatepicker]="pickerdeb" [(ngModel)]="selectedStartDate" placeholder="Date de début" />
+    <mat-datepicker-toggle matSuffix [for]="pickerdeb"></mat-datepicker-toggle>
+    <mat-datepicker #pickerdeb></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="w-100 fs-16" appearance="outline">
+    <input matInput [matDatepicker]="pickerfin" [(ngModel)]="selectedEndDate" placeholder="Date de fin" />
+    <mat-datepicker-toggle matSuffix [for]="pickerfin"></mat-datepicker-toggle>
+    <mat-datepicker #pickerfin></mat-datepicker>
+  </mat-form-field>
+</div>
+
+<div class="action-buttons">
+  <button
+    mat-button
+    class="action-btn"
+    (click)="closeDialog()"
+    style="margin-right: 1%"
+  >
+    Fermer
+  </button>
+  <button
+    mat-button
+    class="btn btn-info fw-normal mt-4"
+    (click)="applyFilters()"
+  >
+    Appliquer
+  </button>
+</div>

@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row box">
+      <div class="col-md-5 mt-3">
+        <h1 class="mb-6 op-7 text-center">Disponibilité des horraires</h1>
+        <p style="text-align: center">
+          (Choissisez un intervalle horraire disponible et prenez un
+          rendez-vous)
+        </p>
+
+        <p>
+          <strong>Dr.{{ nom_vet }} {{ prenom_vet }}</strong>
+        </p>
+
+        <full-calendar [options]="calendarOptions"></full-calendar>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

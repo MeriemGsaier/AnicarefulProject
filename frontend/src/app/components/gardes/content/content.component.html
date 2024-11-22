@@ -1,0 +1,93 @@
+<mat-card class="w-100" style="height: 123px">
+  <mat-card-content>
+    <mat-form-field
+      class="w-100 fs-16"
+      appearance="outline"
+      style="margin: -0.75em 0"
+    >
+      <div class="search-container">
+        <div class="input-wrapper">
+          <mat-icon matPrefix>search</mat-icon>
+          <input
+            matInput
+            type="text"
+            placeholder="Rechercher..."
+            class="search-field"
+            (keyup)="search($event)"
+            #input
+          />
+        </div>
+      </div>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
+<div
+  style="
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    margin-bottom: 2%;
+  "
+>
+  <div style="display: flex; align-items: center; margin-bottom: 3%">
+    <mat-icon style="margin-right: 5px">library_books</mat-icon>
+    <h4 class="mb-0">Blogs et expériences</h4>
+  </div>
+
+  <button
+    mat-button
+    class="btn btn-info fw-normal mt-4"
+    style="margin-left: 1%"
+    matTooltip="Publier et gérer votre propre contenu"
+    [routerLink]="['/dashboardGard/gestionContent']"
+  >
+    Gestion de votre contenu
+  </button>
+</div>
+<!-- Cards -->
+<div fxLayout="row wrap" fxLayoutGap="30px grid">
+  <div
+    fxFlex.md="33%"
+    fxFlex.lg="33%"
+    fxFlex.xl="33%"
+    fxFlex.sm="100%"
+    *ngFor="let card of filteredCards"
+  >
+    <mat-card class="overflow-hidden">
+      <div>
+        <img
+          [src]="'../../assets/images/uploads/' + card.photo"
+          class="w-100 card-image"
+          alt=""
+        />
+        <img
+          width="15%"
+          style="margin-left: 4%; margin-top: -9%; border-radius: 50%"
+          src="{{ card.profile }}"
+        />
+      </div>
+      <mat-card-content>
+        <div>
+          <p class="fs-18 lh-lg fw-medium" style="margin-top: -10%">
+            {{ card.title }}
+          </p>
+
+          <div style="display: flex; align-items: center; margin-bottom: 3%">
+            <mat-icon style="margin-right: 5px">calendar_today</mat-icon>
+            <p class="mb-0 op-7">{{ card.date | date : "dd/MM/yyyy" }}</p>
+          </div>
+
+          <button
+            mat-button
+            class="btn fw-normal mt-4"
+            style="margin-left: 1%; background-color: #f3f3f3"
+            matTooltip="Plus de détails"
+            (click)="showDetails(card.id)"
+          >
+            plus de détails
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

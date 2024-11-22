@@ -1,0 +1,68 @@
+
+
+<div class="card" id="catcard">
+    <div class="card-body">
+      
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <mat-label>Rechercher une catégorie</mat-label>
+        <input matInput placeholder="Entrer un nom du catégorie" (keyup)="applyFilter($event)" #input>
+      </mat-form-field>
+
+    </div>
+</div>
+
+
+<!-- Daily Activity -->
+<mat-card class="w-100">
+    <mat-card-content>
+      <h4 class="mb-56">Liste des catégories</h4>
+      <button mat-flat-button style="background-color: #00c292; color: white;" class="float-right" [routerLink]="['/admin-dashboard/ajout-categorie']">Ajouter catégorie</button>
+
+      <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" class="text-nowrap w-100">
+  
+          <!-- Id Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell class="fw-medium" *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+         
+  
+          <!-- Assigned Column -->
+           <ng-container matColumnDef="libelle">
+            <th mat-header-cell *matHeaderCellDef style="padding-left: 200px;"> Libellé </th>
+            <!-- <td mat-cell *matCellDef="let element"> -->
+              <!-- <p class="mb-0 fw-medium"></p> -->
+              <td mat-cell class=" fw-medium" *matCellDef="let element" style="padding-left: 200px;"> {{ element.libelle }} </td>
+            <!-- </td> -->
+          </ng-container> 
+
+           <!-- Assigned Column -->
+           <ng-container matColumnDef="photo">
+            <th mat-header-cell *matHeaderCellDef style="padding-left: 100px;"> Photo </th>
+            <!-- <td mat-cell *matCellDef="let element"> -->
+              <!-- <p class="mb-0 fw-medium"></p> -->
+              <td mat-cell class=" fw-medium" *matCellDef="let element" style="padding-left: 100px;">
+                      <img [src]="'../../assets/images/uploads/'+element.photo" alt="Photo du categorie" width="50">  </td> 
+                
+                
+          </ng-container> 
+  
+         
+  
+          <!-- Budget Column -->
+           <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef  style="padding-left: 200px;"> Actions </th>
+            <td mat-cell *matCellDef="let element"  style="padding-left: 200px;">
+                <button style="margin: 10px;" mat-raised-button class="me-3 mb-8" matTooltip="Supprimer" matTooltipPosition="below" color="warn" (click)="deleteCategorie(element.id)"><i-feather name="trash-2" class="feather-base mt-n2" style="color: white;"></i-feather></button>
+                <button mat-raised-button class="me-8 mb-8" color="primary" matTooltip="Modifier" matTooltipPosition="below" [routerLink]="['/admin-dashboard/modifier-categorie', element.id]"><i-feather name="edit" class="feather-base mt-n2" style="color: white;"></i-feather></button>
+            </td>
+          </ng-container>
+   
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>

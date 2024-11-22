@@ -1,0 +1,47 @@
+h5 {
+  font-size: small;
+  color: black;
+  margin-bottom: 0%;
+}
+img {
+  width: 24px;
+  height: 24px;
+  margin-right: 2%;
+}
+/* Style des boutons par défaut */
+button.btn-type {
+  border: 1px solid lightgray; /* Bordure gris clair par défaut */
+  color: black; /* Couleur du texte */
+  margin-right: 2%;
+  margin-bottom: 3%;
+}
+
+/* Style des boutons au survol */
+button.btn-type:hover {
+  border-color: black;
+}
+
+/* Style du bouton sélectionné */
+button.btn-type.selected {
+  border-color: black;
+}
+button.action-btn {
+  border: 1px solid lightgray;
+  color: black;
+}
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.date-fields {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3%;
+  width: 48%;
+  margin-right: 2%;
+}
+
+.btn-type.selected {
+  background-color: #03c9d7; /* Changez la couleur à votre choix */
+  color: white;
+}

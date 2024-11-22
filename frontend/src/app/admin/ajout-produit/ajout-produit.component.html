@@ -1,0 +1,41 @@
+<!-- Form Layout -->
+<div class="card">
+    <div class="card-body">
+      <h4 class="mb-32">Ajout d'un produit</h4>
+      <form [formGroup] = "produitForm">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Libellé</mat-label>
+          <input matInput type="text" formControlName="libelle" placeholder="Entrer le libellé du produit">
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Catégorie</mat-label>
+            <mat-select formControlName="categorie">
+              <mat-option *ngFor="let categorie of categories" [value]="categorie.id">{{categorie.libelle}}</mat-option>
+             
+            </mat-select>
+          </mat-form-field>
+          
+        
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Prix</mat-label>
+            <input matInput type="number" formControlName="prix" placeholder="Entrer le prix du produit">
+          </mat-form-field>
+       
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" rows="6" placeholder="Entrer la Description du produit" value=""></textarea>
+        </mat-form-field>
+  
+        <div class="w-100 fs-16" appearance="outline" style="margin-bottom: 20px;">
+          <mat-label style="margin-left:5px;">Photo</mat-label>
+          <input  formControlName="photo" type="file" (change)="onFileSelected($event)" style="margin-left: 20px;">
+        </div>
+  
+  
+        <button mat-button class="btn btn-info fw-normal" (click)="ajouterproduit()" type="submit" style="margin-left: 88%; background-color: #00c292; color: white;">Ajouter</button>
+      </form>
+    </div>
+  </div>
+  

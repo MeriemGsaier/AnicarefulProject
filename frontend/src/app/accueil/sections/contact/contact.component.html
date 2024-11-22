@@ -1,0 +1,44 @@
+<div class="container" id="contactez-nous">
+  <h2 class="text-center mb-4" style="font-weight: bolder; margin-top: 60px;">Contactez-nous</h2>
+</div>
+<div class="row" style="margin: 90px 0;">
+  <div class="col-md-6 contact-form">
+    <h4 class="mb-32" style="font-size: 32px;">Prenez contact</h4>
+    <form [formGroup]="contactForm" *ngIf="contactForm" (ngSubmit)="sendEmail()">
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Nom Complet</mat-label>
+        <input matInput formControlName="fullName" placeholder="Entrez votre nom complet">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Adresse Email</mat-label>
+        <input matInput formControlName="email" placeholder="Entrez votre adresse email">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Numéro de Téléphone</mat-label>
+        <input matInput formControlName="phone" type="number" placeholder="Entrez votre numéro">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Sujet</mat-label>
+        <input matInput formControlName="subject" placeholder="Entrez le sujet du message">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message" rows="6" placeholder="Écrivez votre message"></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">ENVOYER LE MESSAGE</button>
+    </form>
+  </div>
+  <div class="col-md-6 contact-info">
+    <h5>Coordonnées</h5>
+    <p>5, avenue Taha Hussein Montfleury, 1008 Tunis</p>
+    <p>(+216) 71 49 68 96</p>
+    <p>(+216) 71 39 11 66</p>
+    <p>adminvotre-entreprise.com</p>
+    <div class="social-icons">
+      <a href="#" mat-icon-button><i-feather name="facebook" class="feather-base me-16"></i-feather></a>
+      <a href="#" mat-icon-button><i-feather name="twitter" class="feather-base me-16"></i-feather></a>
+      <a href="#" mat-icon-button><i-feather name="instagram" class="feather-base me-16"></i-feather></a>
+      <a href="#" mat-icon-button><i-feather name="youtube" class="feather-base me-16"></i-feather></a>
+    </div>
+  </div>
+</div>

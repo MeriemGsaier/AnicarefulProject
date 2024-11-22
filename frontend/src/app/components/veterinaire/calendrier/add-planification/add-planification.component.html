@@ -1,0 +1,68 @@
+<!-- Form Layout -->
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">Ajout d'une planification</h4>
+    <form [formGroup]="planificationForm">
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Veuillez entrer la date du jour"
+          formControlName="date"
+          [(ngModel)]="planification.date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Champs pour les intervalles supplémentaires -->
+      <div *ngFor="let interval of planification.intervals; let i = index">
+        <mat-form-field class="w-100 s-16" appearance="outline">
+          <mat-label>Heure début</mat-label>
+          <input
+            matInput
+            type="time"
+            placeholder="Veuillez entrer l'heure de début"
+            [(ngModel)]="interval.heure_debut"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+        <mat-form-field class="w-100 s-16" appearance="outline">
+          <mat-label>Heure fin</mat-label>
+          <input
+            matInput
+            type="time"
+            placeholder="Veuillez entrer l'heure de fin"
+            [(ngModel)]="interval.heure_fin"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+        <!-- Empêcher la suppression de l'intervalle s'il n'y a qu'un seul intervalle -->
+        <button
+          mat-button
+          color="warn"
+          type="button"
+          *ngIf="planification.intervals.length > 1"
+          (click)="removeInterval(i)"
+        >
+          Supprimer l'intervalle
+        </button>
+      </div>
+
+      <!-- Bouton pour ajouter un nouvel intervalle -->
+      <button mat-button color="primary" type="button" (click)="addInterval()">
+        Ajouter un intervalle
+      </button>
+      <button
+        mat-button
+        class="btn btn-info fw-normal"
+        (click)="ajouterPlanification()"
+        type="submit"
+        style="margin-left: 69%"
+      >
+        Ajouter planification
+      </button>
+    </form>
+  </div>
+</div>

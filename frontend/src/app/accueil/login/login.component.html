@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<div style="max-width: 400px; margin: 40px auto">
+  <mat-card>
+    <mat-card-content>
+      <h3 class="mb-32 text-center">Connexion</h3>
+      <div class="text-center mt-3">
+        <p class="text-muted">Bienvenue chez Anicareful</p>
+      </div>
+      <div class="p-3">
+        <form (submit)="login()">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="email"
+              required
+            />
+            <mat-error *ngIf="!email">Champ obligatoire</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Mot de passe</mat-label>
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              id="password"
+              name="password"
+              [(ngModel)]="password"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="hidePassword = !hidePassword"
+              [attr.aria-label]="
+                hidePassword ? 'Show password' : 'Hide password'
+              "
+            >
+              <mat-icon>{{
+                hidePassword ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+            <mat-error *ngIf="!password">Champ obligatoire</mat-error>
+          </mat-form-field>
+
+          <div class="mt-3 text-center" style="margin-bottom: 20px">
+            <button
+              type="submit"
+              mat-raised-button
+              color="primary"
+              class="btn btn-custom btn-block"
+              [disabled]="!email || !password"
+            >
+              Se connecter
+            </button>
+          </div>
+
+          <div class="mt-4 mb-0 text-center">
+            <a [routerLink]="'/accueil/signup'"
+              >Vous êtes nouveau sur Anicareful ? 
+              <span class="font-weight-bold" style="color: #03c9d7"
+                >Créer un compte</span
+              >
+            </a>
+          </div>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,63 @@
+<!-- Form Layout -->
+<div class="card">
+    <div class="card-body">
+      <h4 class="mb-32">Modification d'une garde</h4>
+      <form [formGroup] = "gardeForm">
+    
+
+        
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Type Garde</mat-label>
+          <mat-select formControlName="type_garde">
+            <mat-option value="1">	garde à domicile</mat-option>
+            <mat-option value="2">embarquement</mat-option>
+            <mat-option value="3">visites sans rendez-vous</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Animal</mat-label>
+            <mat-select formControlName="animal">
+              <mat-option value="1">Max</mat-option>
+              <mat-option value="2">Misty</mat-option>
+              <mat-option value="3">Caramel</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+
+          
+        
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Date de début</mat-label>
+            <input matInput type="date" formControlName="date_debut" placeholder="Entrer la date de début'">
+          </mat-form-field>
+
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>haure de début</mat-label>
+            <input matInput type="time" formControlName="heure_debut" placeholder="Entrer l'heure de début'">
+          </mat-form-field>
+
+         
+       
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Date de fin</mat-label>
+            <input matInput type="date" formControlName="date_fin" placeholder="Entrer la date de fin'">
+          </mat-form-field>
+
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>haure de fin</mat-label>
+            <input matInput type="time" formControlName="heure_fin" placeholder="Entrer l'heure de fin''">
+          </mat-form-field>
+
+         
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Remarques</mat-label>
+            <textarea matInput rows="6" formControlName="remarque" placeholder="Saisir vos remarques" value=""></textarea>
+          </mat-form-field>
+  
+        <button mat-button class="btn btn-info fw-normal" (click)="modifierGarde()" type="submit" style="margin-left: 88%;">Modifier garde</button>
+      </form>
+    </div>
+  </div>
+  

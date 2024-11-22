@@ -1,0 +1,22 @@
+<!-- Form Layout -->
+<div class="card">
+    <div class="card-body">
+      <h4 class="mb-32">Ajout d'une catégorie</h4>
+      <form [formGroup] = "categorieForm">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Libellé</mat-label>
+          <input matInput type="text" formControlName="libelle" placeholder="Entrer le libellé du catégorie">
+        </mat-form-field>
+  
+        <div class="w-100 fs-16" appearance="outline" style="margin-bottom: 30px;">
+          <mat-label style="margin-left: 5px;">Photo</mat-label>
+          <input type="file" (change)="onFileSelected($event)" formControlName="photo" placeholder="Choisir une image du catégorie" style="margin-left: 15px;">
+        </div>
+          
+        
+        
+        <button mat-flat-button class="float-right" style="background-color: #00c292; color: white; margin-left: 88%;" (click)="ajoutercategorie()" type="submit">Ajouter</button>
+      </form>
+    </div>
+  </div>
+  

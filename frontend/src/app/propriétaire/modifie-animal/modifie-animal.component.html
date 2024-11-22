@@ -1,0 +1,65 @@
+<!-- Form Layout -->
+<div class="card">
+    <div class="card-body">
+      <h4 class="mb-32">Modification d'un animal</h4>
+      <form [formGroup] = "animalForm">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Nom</mat-label>
+          <input matInput type="text" formControlName="nom" placeholder="Entrer le nom du l'animal">
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Espéce</mat-label>
+            <mat-select formControlName="espece">
+              <mat-option value="Chien">Chien</mat-option>
+              <mat-option value="Chat">Chat</mat-option>
+              <mat-option value="Lapin">Lapin</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Race</mat-label>
+            <mat-select formControlName="race">
+              <mat-option value="Labrador">Labrador Retriever</mat-option>
+              <mat-option value="Berger">Berger Allemand</mat-option>
+              <mat-option value="Retriever">Golden Retriever</mat-option>
+              <mat-option value="Caniche">Caniche </mat-option>
+              <mat-option value="Dalmatien">Dalmatien</mat-option>
+              <mat-option value="Husky">Husky Sibérien</mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput type="number" formControlName="age" placeholder="Entrer l'age du l'animal'">
+          </mat-form-field>
+       
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Sexe</mat-label>
+            <mat-select formControlName="sexe">
+              <mat-option value="male">Mâle</mat-option>
+              <mat-option value="femelle">Femelle</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Poids</mat-label>
+            <input matInput type="number" formControlName="poids" placeholder="Entrer le poids du l'animal'">
+          </mat-form-field>
+
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Informations médicales</mat-label>
+          <textarea matInput rows="6" formControlName="info_med" placeholder="Entrer des informations médicales liées à votre animal" ></textarea>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Régime alimentaire</mat-label>
+            <textarea matInput rows="6" formControlName="reg_alim" placeholder="Entrer le régime alimentaire de votre animal" ></textarea>
+          </mat-form-field>
+  
+        <button mat-button class="btn btn-info fw-normal" (click)="modifieranimal()" type="submit" style="margin-left: 88%;">Modifier</button>
+      </form>
+    </div>
+  </div>
+  

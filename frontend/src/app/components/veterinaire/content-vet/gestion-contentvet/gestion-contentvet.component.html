@@ -1,0 +1,138 @@
+<!-- Daily Activity -->
+<mat-card class="w-100">
+  <mat-card-content>
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <h4 class="mb-56">Votre contenu informatif</h4>
+      <button
+        mat-flat-button
+        color="primary"
+        [routerLink]="['/dashboardVet/addContent']"
+      >
+        Publier un contenu
+      </button>
+    </div>
+
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" class="text-nowrap w-100">
+        <!-- Assigned Column -->
+        <ng-container matColumnDef="titre">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 15px">
+            Titre
+          </th>
+          <!-- <td mat-cell *matCellDef="let element"> -->
+          <!-- <p class="mb-0 fw-medium"></p> -->
+          <td
+            mat-cell
+            class="fw-medium"
+            *matCellDef="let element"
+            style="padding-left: 15px"
+          >
+            {{ element.titre }}
+          </td>
+          <!-- </td> -->
+        </ng-container>
+
+        <!-- Assigned Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 15px">
+            Description
+          </th>
+          <!-- <td mat-cell *matCellDef="let element"> -->
+          <!-- <p class="mb-0 fw-medium"></p> -->
+          <td
+            mat-cell
+            class="fw-medium"
+            *matCellDef="let element"
+            style="
+              padding-left: 15px;
+              max-height: 3em;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: pre-wrap;
+            "
+          >
+            {{ element.description }}
+          </td>
+          <!-- </td> -->
+        </ng-container>
+
+        <!-- Assigned Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 15px">
+            Date
+          </th>
+          <!-- <td mat-cell *matCellDef="let element"> -->
+          <!-- <p class="mb-0 fw-medium"></p> -->
+          <td
+            mat-cell
+            class="fw-medium"
+            *matCellDef="let element"
+            style="padding-left: 15px"
+          >
+            {{ element.date | date : "dd-MM-yyyy" }}
+          </td>
+          <!-- </td> -->
+        </ng-container>
+
+        <!-- Assigned Column -->
+        <ng-container matColumnDef="photo">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 15px">
+            Photo
+          </th>
+          <!-- <td mat-cell *matCellDef="let element"> -->
+          <!-- <p class="mb-0 fw-medium"></p> -->
+          <td
+            mat-cell
+            class="fw-medium"
+            *matCellDef="let element"
+            style="padding-left: 15px"
+          >
+            <img
+              [src]="'../../assets/images/uploads/' + element.photo"
+              alt="Photo article"
+              width="100"
+            />
+          </td>
+          <!-- </td> -->
+        </ng-container>
+
+        <!-- Assigned Column -->
+        <ng-container matColumnDef="etat">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 15px">
+            État
+          </th>
+          <!-- <td mat-cell *matCellDef="let element"> -->
+          <!-- <p class="mb-0 fw-medium"></p> -->
+          <td
+            mat-cell
+            class="fw-medium"
+            *matCellDef="let element"
+            style="padding-left: 15px"
+          >
+            <span
+              style="
+                border-radius: 10px;
+                padding: 5px;
+                color: white;
+                font-weight: bold;
+              "
+              [ngClass]="{
+                'badge badge-success rounded-pill': element.etat === 'approuve',
+                'badge badge-primary rounded-pill':
+                  element.etat === 'en attente'
+              }"
+            >
+              {{ element.etat }}
+            </span>
+          </td>
+          <!-- </td> -->
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

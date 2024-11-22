@@ -1,0 +1,75 @@
+
+<div fxLayout="row">
+    <div fxFlex="100%">
+      <mat-card>
+        <mat-card-content>
+          <h4 class="mb-32">Votre panier</h4>
+  
+          <mat-grid-list cols="3" rowHeight="100px">
+            
+            <mat-grid-tile [colspan]="2" [rowspan]="4">
+                
+                <div class="product-container" >
+
+                <div class="d-flex align-items-center" style="margin-bottom: 20px;" *ngFor="let produit of cart; let i = index">
+              
+                        <img  [src]="'../../assets/images/uploads/'+produit.image" class="img-fluid" alt="Produit" style="width: 100px; margin-left: -20px;">
+
+                    <div style="width: 250px;">
+                        <h4>{{produit.libelle}}</h4>
+                        <h5>{{produit.desc}}</h5>
+                    </div>           
+                        <mat-form-field style="margin-left: 10px; " appearence="fill">
+                            <!-- <input matInput type="number" min="1" placeholder="Quantité" >  -->
+                            <input matInput type="number" min="1" placeholder="Quantité" [value]="produit.quantite" [(ngModel)]="produit.quantite" (change)="updatePrice()"> 
+
+                        </mat-form-field>
+                        <p style="margin-left: 30px; font-weight: bold; ; width: 70px;">{{produit.prix * produit.quantite}} DT</p>
+                        <button style="margin-left: 30px;" mat-button class="me-3 mb-8" matTooltip="Supprimer de panier" matTooltipPosition="below" (click)="supprimerProduit(i)"><i-feather name="x-circle" class="feather-base mt-n2"></i-feather></button>
+                </div>
+
+        <div>
+            <button style="margin: 10px;" mat-button class="me-3 mb-8" matTooltip="retour" matTooltipPosition="below" [routerLink]="['/prop-dashboard/produits']"><i-feather name="arrow-left" class="feather-base mt-n2"></i-feather> Retour à la boutique</button>
+ 
+        </div>
+    </div>
+
+    
+            </mat-grid-tile>
+
+            
+            <mat-grid-tile [colspan]="1" [rowspan]="4">
+                
+
+                <div style="margin-top: 20px;">
+                    <h3><b>Résumé</b></h3>
+                    <hr>
+
+                    <div style="margin-top: 20px;">
+                        <h4>Nombre d'articles : {{nombre_article}}</h4>
+                    </div>   
+                   
+                    <hr>
+
+                    <div style="margin-top: 20px;">
+                        <h4>Prix total : {{prix_total}} DT</h4>
+                    </div>  
+                    <hr>
+                    <div style="margin-top: 20px;">
+                        <button mat-raised-button class="me-8 mb-8" color="primary" matTooltip="payer" matTooltipPosition="below" [routerLink]="['/prop-dashboard/paiement']">Passer au paiement</button>
+                    </div >
+                    
+                </div>
+
+
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+       
+    
+   

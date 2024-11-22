@@ -1,0 +1,19 @@
+<!-- Form Layout -->
+<div class="card">
+    <div class="card-body">
+      <h4 class="mb-32">Modification d'une catégorie</h4>
+      <form [formGroup]="categorieForm">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Libellé</mat-label>
+          <input matInput type="text" formControlName="libelle" placeholder="Modifier le libellé de la catégorie">
+        </mat-form-field>
+  
+        <div class="w-100 fs-16" appearance="outline" style="margin-bottom: 30px;">
+          <mat-label style="margin-left: 5px;">Photo</mat-label>
+          <input type="file" formControlName="photo" (change)="onFileSelected($event)" placeholder="Modifier la photo de la catégorie" style="margin-left: 15px;">
+        </div>
+        
+        <button mat-button class="btn btn-info fw-normal" (click)="modifierCategorie()" type="submit" style="margin-left: 88%;">Modifier</button>
+      </form>
+    </div>
+</div>

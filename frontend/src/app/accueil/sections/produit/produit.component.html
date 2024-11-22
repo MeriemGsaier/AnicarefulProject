@@ -1,0 +1,38 @@
+<div class="container" id="produitsH">
+  <h2 class="text-center mb-4" style="font-weight: bolder; margin: 80px; margin-top: 60px;padding-bottom: 40px;">Les produits</h2>
+</div>
+
+<!-- Boutons de catégories avec espace entre eux -->
+<div class="d-flex justify-content-center mb-4">
+  <div class="btn-group" style="margin-bottom: 30px;">
+    <button mat-raised-button class="me-8 mb-8" color="primary" *ngFor="let categorie of categories" (click)="filterByCategory(categorie.id)">
+      {{ categorie.libelle }}
+    </button>
+    <button mat-raised-button class="me-8 mb-8" color="primary" (click)="filterByCategory(0)">Tous</button>
+  </div>
+</div>
+
+
+<!-- Conteneur pour centrer les cartes -->
+<div class="d-flex justify-content-center">
+  <!-- Cards -->
+  <div fxLayout="row wrap" fxLayoutGap="30px" fxLayoutAlign="center start">
+    <div fxFlex.md="25%" fxFlex.lg="25%" fxFlex.xl="25%" fxFlex.sm="100%" *ngFor="let card of filteredCards; let i = index">
+      <mat-card class="overflow-hidden" *ngIf="i % 4 < 4">
+        <div style="height: 200px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+          <img src="../../assets/images/uploads/{{card.image}}" class="img-fluid" alt="">
+        </div>
+        <mat-card-content>
+          <div>
+            <p class="fs-18 lh-lg fw-medium">{{ card.libelle }}</p>
+            <p class="op-7">{{ card.desc }}</p>
+            <div class="product-price">
+              <span>{{ card.prix }} DT</span>
+            </div>
+            <button mat-button class="btn btn-info fw-normal mt-4" (click)="selectProprietaire()">Ajouter au panier</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

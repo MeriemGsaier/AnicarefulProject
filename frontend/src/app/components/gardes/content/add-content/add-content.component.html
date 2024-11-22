@@ -1,0 +1,48 @@
+<!-- Form Layout -->
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">Publication d'un article</h4>
+    <form [formGroup]="contentForm">
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Titre de l'article</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Entrer le titre de l'article"
+          formControlName="titre"
+        />
+      </mat-form-field>
+
+      <div class="w-100 fs-16" appearance="outline" style="margin-bottom: 30px">
+        <mat-label style="margin-left: 5px">Photo</mat-label>
+        <input
+          type="file"
+          (change)="onFileSelected($event)"
+          formControlName="photo"
+          placeholder="Choisir une image du contenu"
+          style="margin-left: 15px"
+        />
+      </div>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Description de l'article</mat-label>
+        <textarea
+          matInput
+          rows="10"
+          placeholder="Entrer la Description de l'article"
+          formControlName="description"
+        ></textarea>
+      </mat-form-field>
+
+      <button
+        mat-button
+        class="btn btn-info fw-normal"
+        (click)="ajouterContent()"
+        type="submit"
+        style="margin-left: 88%; background-color: #00c292; color: white"
+      >
+        Publier article
+      </button>
+    </form>
+  </div>
+</div>

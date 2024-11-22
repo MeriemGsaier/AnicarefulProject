@@ -1,0 +1,99 @@
+<mat-card class="w-100" style="height: 123px">
+  <mat-card-content>
+    <mat-form-field
+      class="w-100 fs-16"
+      appearance="outline"
+      style="margin: -0.75em 0"
+    >
+      <div class="search-container">
+        <div class="input-wrapper">
+          <mat-icon matPrefix>search</mat-icon>
+          <input
+            matInput
+            type="text"
+            placeholder="Rechercher..."
+            class="search-field"
+            (keyup)="search($event)"
+            #input
+          />
+        </div>
+        <button
+          mat-icon-button
+          (click)="openFiltersDialog()"
+          class="filter-button"
+          aria-label="Filtres"
+        >
+          <mat-icon>filter_list</mat-icon>
+          Filtres
+        </button>
+      </div>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
+
+<div style="display: flex; align-items: center; margin-bottom: 3%">
+  <mat-icon style="margin-right: 5px">trending_up</mat-icon>
+  <h4 class="mb-0">Demandes de garde pertinentes</h4>
+</div>
+<!-- Cards -->
+<div fxLayout="row wrap" fxLayoutGap="30px grid">
+  <div
+    fxFlex.md="33%"
+    fxFlex.lg="33%"
+    fxFlex.xl="33%"
+    fxFlex.sm="100%"
+    *ngFor="let card of filteredCards"
+  >
+    <mat-card class="overflow-hidden">
+      <div>
+        <img
+          [src]="'../../assets/images/uploads/' + card.photo"
+          class="w-100 card-image"
+          alt=""
+        />
+      </div>
+      <mat-card-content>
+        <div>
+          <p class="fs-18 lh-lg fw-medium" style="margin-top: -10%">
+            {{ card.nom }} {{ card.prenom }}
+          </p>
+          <p
+            class="fs-15 lh-lg fw-small op-7"
+            style="margin-bottom: 3%; margin-top: -7%"
+          >
+            {{ card.type_garde }}
+          </p>
+          <div style="display: flex; align-items: center; margin-bottom: 3%">
+            <mat-icon style="margin-right: 5px">location_on</mat-icon>
+            <p class="mb-0 op-7">{{ card.adresse_domicile }}</p>
+          </div>
+          <div style="display: flex; align-items: center; margin-bottom: 3%">
+            <mat-icon style="margin-right: 5px">calendar_today</mat-icon>
+            <p class="mb-0 op-7">
+              {{ card.date_debut | date : "dd/MM/yyyy" }}-{{
+                card.date_fin | date : "dd/MM/yyyy"
+              }}
+            </p>
+          </div>
+          <button
+            mat-button
+            class="btn btn-info fw-normal mt-4"
+            matTooltip="Postuler pour cette garde"
+            (click)="postuler(card.id)"
+          >
+            Postuler
+          </button>
+          <button
+            mat-button
+            class="btn btn-primary fw-normal mt-4"
+            style="margin-left: 1%"
+            matTooltip="Plus de détails"
+            (click)="showDetails(card.id)"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

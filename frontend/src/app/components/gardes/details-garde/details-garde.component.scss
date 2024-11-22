@@ -1,0 +1,35 @@
+.details-content {
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  width: 100%;
+}
+
+.photo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container {
+  flex: 1;
+  padding: 0 20px; /* Espacement entre la photo et le contenu */
+}
+.photo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 10px; /* Arrondi du coin supérieur gauche */
+  border-bottom-left-radius: 10px; /* Arrondi du coin inférieur gauche */
+}
+
+.profile-image img {
+  width: 100%; /* Image prend toute la largeur du conteneur */
+  border-radius: 10px; /* Arrondi des coins de l'image */
+  object-fit: cover; /* Pour s'assurer que l'image couvre tout le conteneur */
+}

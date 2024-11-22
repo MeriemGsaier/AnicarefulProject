@@ -1,0 +1,26 @@
+<mat-toolbar class="header ps-24 pe-24" style="box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2);">
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <div class="d-flex align-items-center" [routerLink]="'/accueil'">
+        <a href="javascript:void(0)" class="d-flex align-items-center">
+          <img src="assets/images/logo.png" alt="" style="width: 80px;">
+          <span class="ms-16 fw-medium fs-26">Anicareful</span>
+        </a>
+      </div>
+      <div class="d-flex align-items-center ms-auto">
+        <button mat-button class="btn" [routerLink]="'/accueil/login'">Se connecter</button>
+        <button mat-button class="btn btn-info ms-8" (click)="selectProprietaire()" [routerLink]="'/accueil/signup'">S'inscrire</button>
+        <mat-menu #menu="matMenu" class="profile-dropdown">
+          <div class="p-16 mb-4" (click)="selectProprietaire()">
+            <button mat-menu-item class="fs-16" [routerLink]="'/accueil/accueil/produitsH'">Les produits</button>
+            <button mat-menu-item class="fs-16" [routerLink]="'/accueil/accueil/contenu-informatif'">Contenu informatif</button>
+            <button mat-menu-item class="fs-16" [routerLink]="'/accueil/accueil/rejoignez-nous'">Rejoignez-nous</button>
+            <button mat-menu-item class="fs-16" [routerLink]="'/accueil/accueil/nos-services'">Nos services</button>
+            <button mat-menu-item class="fs-16" [routerLink]="'/accueil/accueil/contactez-nous'">Contactez-nous</button>
+          </div>
+        </mat-menu>
+        <button mat-icon-button class="text-light-muted" [matMenuTriggerFor]="menu" style="margin-left: 20px;">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>

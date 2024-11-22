@@ -1,0 +1,48 @@
+<!-- Form Layout -->
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">Modification d'une planification</h4>
+    <form [formGroup]="planificationForm">
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Veuillez entrer la date du jour"
+          formControlName="date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="w-100 s-16" appearance="outline">
+        <mat-label>Heure début</mat-label>
+        <input
+          matInput
+          type="time"
+          placeholder="Veuillez entrer l'heure de début"
+          formControlName="heure_debut"
+        />
+      </mat-form-field>
+      <mat-form-field class="w-100 s-16" appearance="outline">
+        <mat-label>Heure fin</mat-label>
+        <input
+          matInput
+          type="time"
+          placeholder="Veuillez entrer l'heure de fin"
+          formControlName="heure_fin"
+        />
+      </mat-form-field>
+
+      <button
+        mat-button
+        class="btn btn-info fw-normal"
+        (click)="modifierPlanification()"
+        type="submit"
+        style="margin-left: 92%"
+      >
+        modifier
+      </button>
+    </form>
+  </div>
+</div>

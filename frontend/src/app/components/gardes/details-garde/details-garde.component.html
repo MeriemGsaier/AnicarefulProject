@@ -1,0 +1,88 @@
+<mat-card class="details-card">
+  <mat-card-content class="details-content">
+    <div class="card-container">
+      <!-- Première moitié: Photo -->
+
+      <!-- Deuxième moitié: Contenu -->
+      <div class="content-container">
+        <div class="owner-guard-details">
+          <div class="owner-details">
+            <!-- Nom et prénom du propriétaire -->
+            <h4 style="margin-bottom: 2%">
+              {{ cardDetails?.prenom }} {{ cardDetails?.nom }}
+            </h4>
+            <!-- Adresse du propriétaire -->
+            <p>{{ cardDetails?.adresse_domicile }}</p>
+          </div>
+        </div>
+        <div class="guard-info">
+          <!-- Détails de la garde -->
+          <h4><mat-icon>details</mat-icon> Détails de la garde</h4>
+          <p>
+            <strong style="color: gray">Date : </strong>
+            {{ cardDetails?.date_debut | date : "dd/MM/yyyy" }} ->
+            {{ cardDetails?.date_fin | date : "dd/MM/yyyy" }}
+          </p>
+          <p>
+            <strong style="color: gray">Horraires : </strong
+            >{{ cardDetails?.heure_deb }} - {{ cardDetails?.heure_fin }}
+          </p>
+          <p>
+            <strong style="color: gray">Remarques et exigences : </strong>
+            {{ cardDetails?.remarque }}
+          </p>
+
+          <h4><mat-icon>pets</mat-icon> Détails de l'animal</h4>
+          <ul>
+            <li>
+              <strong style="color: gray">Nom:</strong>
+              {{ cardDetails?.nom_animal }}
+            </li>
+            <li>
+              <strong style="color: gray">Espèce:</strong>
+              {{ cardDetails?.espece }}
+            </li>
+            <li>
+              <strong style="color: gray">Race:</strong>
+              {{ cardDetails?.race }}
+            </li>
+            <li>
+              <strong style="color: gray">Age:</strong>
+              {{ cardDetails?.age }}
+            </li>
+            <li>
+              <strong style="color: gray">Sexe:</strong>
+              {{ cardDetails?.sexe }}
+            </li>
+            <li>
+              <strong style="color: gray">Poids:</strong>
+              {{ cardDetails?.poids }} KG
+            </li>
+            <li>
+              <strong style="color: gray">Information médicale:</strong>
+              {{ cardDetails?.information_medicale }}
+            </li>
+            <li>
+              <strong style="color: gray">Régime alimentaire:</strong>
+              {{ cardDetails?.regime_alimentaire }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="photo-container">
+        <!-- Image de profil du propriétaire -->
+        <div class="profile-image">
+          <img
+            src="../../assets/images/uploads/{{ cardDetails?.photo }}"
+            style="
+              margin-left: -29%;
+              margin-top: 4%;
+              margin-bottom: 2%;
+              width: 156%;
+            "
+          />
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

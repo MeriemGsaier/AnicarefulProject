@@ -1,0 +1,61 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-3">Compléter le profil</h4>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="w-100 fs-16" appearance="outline" style="margin-bottom: 20px;">
+        <mat-label style="margin-left:5px;">Photo</mat-label>
+        <input formControlName="photo" (change)="onFileSelected($event)" type="file" style="margin-left: 20px;">
+      </div>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Genre</mat-label>
+        <mat-select formControlName="genre">
+          <mat-option value="homme">Homme</mat-option>
+          <mat-option value="femme">Femme</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Adresse domicile</mat-label>
+        <input matInput type="text" formControlName="adresse_domicile" placeholder="Entrez votre adresse domicile">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Numéro de téléphone</mat-label>
+        <input matInput type="tel" formControlName="telephone" placeholder="Entrez votre numéro de téléphone">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Âge</mat-label>
+        <input matInput type="number" formControlName="age" placeholder="Entrez votre âge" required min="0">
+      </mat-form-field>
+
+      <!-- Champs spécifiques selon le rôle -->
+      <ng-container *ngIf="role === 'gardien'">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Compétences</mat-label>
+          <input matInput type="text" formControlName="competences" placeholder="Entrez vos compétences">
+        </mat-form-field>
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Expériences</mat-label>
+          <input matInput type="text" formControlName="experiences" placeholder="Entrez vos expériences">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container *ngIf="role === 'veterinaire'">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Spécialité</mat-label>
+          <input matInput type="text" formControlName="specialite" placeholder="Entrez votre spécialité">
+        </mat-form-field>
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Adresse du cabinet</mat-label>
+          <input matInput type="text" formControlName="adresse_cabinet" placeholder="Entrez l'adresse de votre cabinet">
+        </mat-form-field>
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Téléphone du cabinet</mat-label>
+          <input matInput type="tel" formControlName="telephone_cabinet" placeholder="Entrez le numéro de téléphone de votre cabinet">
+        </mat-form-field>
+      </ng-container>
+
+      <button type="submit" mat-raised-button color="primary" class="btn btn-primary">
+        Enregistrer les modifications
+      </button>
+    </form>
+  </div>
+</div>
